@@ -48,6 +48,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                 <th>Description</th>
                 <th>Time Created</th>
                 <th>Price</th>
+                <th>ViewImage</th>
                 <th>Image</th>
                 <th>Request Info</th>
                 
@@ -60,7 +61,8 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                     
                     %>
 
-                    <tr>
+                    <tr style="color: black;">
+                        <% var imageurl = "/media/"+data._id+"."+data.image %>
                         <td><%=data.name%></td>
                         <td><%=data.description%></td>
                         <td><% var dObj = new Date(data.timestamp)
@@ -69,6 +71,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                         <td><%=data.price%></td>
                         
                         <td><a class="" href="/admin/view/<%=data._id%>"> view </a></td>
+                        <td><img src=<%= imageurl %>  style="width:150px;height:150px;border-radius:2px" /></td>
                         <td><a class="" href="/admin/request/<%=data._id%>"> request </a></td>
                        
                            

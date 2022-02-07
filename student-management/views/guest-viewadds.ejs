@@ -3,7 +3,7 @@
     <head>
         <style>
             .mainhead{
-                background: url(https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png);
+                background: url(https://cdn.pixabay.com/photo/2018/05/28/12/09/time-3435879_1280.jpg);
                 padding: 30px;
                 background-repeat: no-repeat;
 background-size: cover;
@@ -49,6 +49,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                 <th>Time Created</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>View</th>
                 <th>Contact</th>
                 
             </tr>
@@ -61,13 +62,14 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                     %>
 
                     <tr>
+                        <% var imageurl = "/media/"+data._id+"."+data.image %>
                         <td><%=data.name%></td>
                         <td><%=data.description%></td>
                         <td><% var dObj = new Date(data.timestamp)
                             var date = dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() %>
                             <%=date%></td>
                         <td><%=data.price%></td>
-                        
+                        <td><img src=<%= imageurl %>  style="width:150px;height:150px;border-radius:2px" /></td>
                         <td><a class="" href="/guest/view/<%=data._id%>"> view </a></td>
                         <td><a class="" href="/guest/contact/<%=data._id%>"> contact </a></td>
                        

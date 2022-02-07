@@ -3,7 +3,7 @@
     <head>
         <style>
             .mainhead{
-                background: url(https://cdn.pixabay.com/photo/2019/04/26/07/14/store-4156934_1280.png);
+                background: url(https://www.teahub.io/photos/full/279-2799487_blue-pastel-wallpaper-desktop.jpg);
                 padding: 30px;
                 background-repeat: no-repeat;
 background-size: cover;
@@ -29,7 +29,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
         background-color: rgba(255, 255, 255, .15);
         
         backdrop-filter: blur(5px);border-radius: 10px; ">
-            <h1 style="color: gold;">Welcome !</h1>
+            <h1 style="color: rgb(255, 255, 255);">Welcome !</h1>
           
             <button class="btn btn-success btnAction" onclick="window.location.href = 'uploadview';">Create Add</button>
             <button class="btn btn-warning btnAction" onclick="window.location.href = 'dadd';">Destroy adds</button>
@@ -51,6 +51,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                 <th>Description</th>
                 <th>Time Created</th>
                 <th>Price</th>
+                <th>View Image</th>
                 <th>Image</th>
                 <th colspan="3">Actions</th>
             </tr>
@@ -60,9 +61,10 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
             {
                 data.forEach(function (data){
                     
-                    %>
+                    %> 
 
                     <tr>
+                        <% var imageurl = "/media/"+data._id+"."+data.image %>
                         <td><%=data.name%></td>
                         <td><%=data.description%></td>
                         <td><% var dObj = new Date(data.timestamp)
@@ -70,7 +72,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                             <%=date%></td>
                             <td><%=data.price%></td>
                             <td><a class="" href="/member/view/<%=data._id%>"> view </a></td>
-                       
+                             <td><img src=<%= imageurl %>  style="width:150px;height:150px;border-radius:2px" /></td>
                             <td><a class="" href="/member/delete/<%=data._id%>"> delete </a></td>
                             <td><a class="" href="/member/updatedet/<%=data._id%>"> update details </a></td>
                             <td><a class="" href="/member/updateimg/<%=data._id%>"> update image </a> </td> 
