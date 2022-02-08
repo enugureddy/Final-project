@@ -90,13 +90,30 @@ function insertimg(req, form,cid)
 {
     console.log("inside controller img")
     //getting collection
-   // var collection = db.collection("add")
+   
 
     form.parse(req, function(err, fields, files){
+       // var collection = db.collection("add")
+        var collection = db.collection("add")
+        var selectedId = fields.id
+        var filter = {
+            "_id": mongodb.ObjectId(selectedId)
+        }
         console.log("inside formidable function img")
         //collecting information about the file upload
         var oldPath = files.adimage.filepath; //temp location 
         var extension = files.adimage.originalFilename.split('.').pop()
+        var adData = {
+            $set: {
+                'image': extension
+            }
+        }
+        collection.updateMany(filter, adData, function (err, result) {
+            if (err) {
+                console.log("err in update")
+                return
+            }
+        })
 
         var adId = fields.id //new id generated //_id.exten ::: for eg: 123123123123.png
         //u want to show a full details of ad
@@ -157,7 +174,7 @@ var dbController = {
                 return
             }
             db = database.db("faster")
-            console.log("DB Connected from Student")
+            console.log("DB Connected for member")
         })
     },
     addmember : function(data){
@@ -172,16 +189,27 @@ var dbController = {
     },
     viewAdds : function(id,res){
         var collection = db.collection("add")
+        var memcollection=db.collection("member")
         var filter1={
             "id":id
         }
+        var filter2={
+            "_id":mongodb.ObjectId(id)
+        }
+        memcollection.findOne(filter2,function(err,mresult){
+            if(err){
+                console.log("Err in view")
+                return
+            }
+
         collection.find(filter1).toArray(function(err,result){
             if(err){
                 console.log("Err in view")
                 return
             }
-            res.render("member-viewadds", {title: "view page", data : result})
+            res.render("member-viewadds", {title: "view page", data : result,mdata:mresult})
         })
+    })
     },
     deleteadd : function(id,res){
         var collection = db.collection("add")

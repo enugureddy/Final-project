@@ -49,17 +49,19 @@ var controller ={
             dbController.dbController.request(id,res)
         },
         requestpost:function(req,res){
-            var id =req.params.id
+            var mid =req.body.mid
+            var id=req.body.id
             var description=req.body.description
             var email=req.body.email
             mailbody="hi"+ +"<br>the admin has requested more information about the add with id:"+id+" you have created. "+description+" kindly login and check the updates "
             emailController.send(email,"thirumalreddyenugu@gmail.com","Action required for ad- Admin",mailbody)
-            res.redirect("/admin/viewmemberadds/:id")
+            console.log("mid",mid)
+            res.redirect("/admin/viewmemberadds/"+mid+"")
 
         },
         back : function(req, res){
    
-            res.redirect("/viewmembers")
+            res.redirect("/admin/viewmembers")
         },
     
 

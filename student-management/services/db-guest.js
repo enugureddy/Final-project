@@ -24,10 +24,10 @@ var dbController = {
                 return
             }
             db = database.db("faster")
-            console.log("DB Connected from Student")
+            console.log("DB Connected for guest")
         })
     },
-    viewmemberadds : function(res){
+    viewmemberadds : function(name,res){
         var collection = db.collection("add")
        // var vid = mongodb.ObjectId(id)
       
@@ -36,7 +36,7 @@ var dbController = {
                 console.log("Err in view")
                 return
             }
-            res.render("guest-viewadds", {title: "view tasks", addData : result})
+            res.render("guest-viewadds", {title: "view tasks", addData : result,mname:name})
         })
     },
    /*  contact : function(id,res){
@@ -88,7 +88,7 @@ var dbController = {
                })
              console.log("output",output)
              console.log("memdata",memdata)
-            res.render("guest-contact", {title: "view page", mdata:memdata})
+            res.render("guest-contact", {title: "view page", mdata:memdata,aid:id})
             })
             console.log("result",result)
             

@@ -32,24 +32,34 @@ var dbController = {
                 return
             }
             db = database.db("faster")
-            console.log("DB Connected from admin")
+            console.log("DB Connected for admin")
         })
     },
     
     viewmemberadds : function(id,res){
         var collection = db.collection("add")
+        var memcollection=db.collection("member")
        // var vid = mongodb.ObjectId(id)
        var filter ={
                   "id":id
        }
-      
+        var filter2 ={
+                  "_id":mongodb.ObjectId(id)
+       }
+       memcollection.findOne(filter2,function(err,mresult){
+        if(err){
+            console.log("Err in view")
+            return
+        }
+     // console.log(mresult)
         collection.find(filter).toArray(function(err,result){
             if(err){
                 console.log("Err in view")
                 return
             }
-            res.render("admin-viewadds", {title: "view tasks", addData : result})
+            res.render("admin-viewadds", {title: "view tasks", addData : result,mdata:mresult})
         })
+    })
     },
     viewmembers : function(res){
         var collection = db.collection("member")
@@ -97,7 +107,7 @@ var dbController = {
                })
              console.log("output",output)
              console.log("memdata",memdata)
-            res.render("admin-request", {title: "view page", mdata:memdata})
+            res.render("admin-request", {title: "view page", mdata:memdata,aid:id})
             })
             console.log("result",result)
             

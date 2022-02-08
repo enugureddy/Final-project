@@ -12,8 +12,8 @@ var controller ={
      },
   
     login : function(req,res){
-        // var id = req.params.id
-         dbController.dbController.viewmemberadds(res)
+         var name = req.body.name
+         dbController.dbController.viewmemberadds(name,res)
      },
      view:async function(req,res){
         var id=req.params.id
@@ -31,11 +31,11 @@ var controller ={
             dbController.dbController.contact(id,res)
         },
         contactpost:function(req,res){
-            var id=req.params.id
+            var id=req.body.aid
             var description=req.body.description
             var email=req.body.email
-            mailbody="hi"+ +"<br>a user  has requested more information about the add with id:"+id+" you have created."+description+" kindly login and check the updates "
-            emailController.send(email,"thirumalreddyenugu@gmail.com","Action required for ad- Admin",mailbody)
+            mailbody="hi"+"<br><p>a user  has requested more information about the add you posted with </p><br><p>id:<b>" +id+ "</b</p> with message:  "+description+" <br> .kindly login and check the updates "
+            emailController.send(email,"mechanicfridge@gmail.com","Action required for ad- Admin",mailbody)
             res.redirect("/guest")
 
         },
