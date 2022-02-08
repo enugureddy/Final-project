@@ -9,12 +9,15 @@
             align-items: center;
             margin-left: 35%;
             border-radius: 20px ;
-            height: 25rem;
+            height: 22rem;
 box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
 
-background-color: rgba(255, 255, 255, .15);
+/* background-color: rgba(255, 255, 255, .15); */
 
-backdrop-filter: blur(5px);
+background-color: rgb(41,41,41,255);
+
+
+/* backdrop-filter: blur(5px); */
             }
 
             body{
@@ -37,7 +40,7 @@ backdrop-filter: blur(5px);
     <body>
         <form action="/guest/enter" method="post" class="formdes">
             <h3 style="color: white;font-weight: bolder;font-size: 30px;"><center>Guest Login</center></h3><br>
-              <h3>New user! no need to register, just click the below button</h3><br>
+              <h3 style="color: white;">New user! no need to register, just hop on with just your name</h3>
               <div class="mb-3">
                 <label>Name</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>

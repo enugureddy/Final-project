@@ -12,9 +12,9 @@
             height: 25rem;
 box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
 
-background-color: rgba(255, 255, 255, .15);
+background-color: rgb(41,41,41,255);
 
-backdrop-filter: blur(5px);
+/* backdrop-filter: blur(5px); */
             }
 
             body{
@@ -38,11 +38,11 @@ backdrop-filter: blur(5px);
         <form action="/member/loginverify" method="post" class="formdes">
             <h3 style="color: white;font-family: sans-serif;font-weight: bolder;"><center>Member Login</center></h3><br>
               <div class="mb-3">
-                <label>Member Email</label>
+                <label style="color: white;">Member Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter  Email" required>
               </div>
               <div class="mb-3">
-                <label>Member Password</label>
+                <label style="color: white;">Member Password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter  Password" required>
               </div>
               <button type="submit" class="btn btn-primary w-100">Login</button> <br> <br>

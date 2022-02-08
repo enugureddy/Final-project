@@ -9,19 +9,20 @@
         margin-top: 4%;
         align-items: center;
         margin-left: 35%;
-        border-radius: 20px ;
+      /*   border-radius: 20px ; */
         height: 40rem;
 box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
 
-background-color: rgba(255, 255, 255, .15);
+background-color: rgba(0,0, 0, 255);
 
-backdrop-filter: blur(5px);
+/* backdrop-filter: blur(5px); */
         }
 
         body{
-        background: url('https://image.freepik.com/free-photo/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept_58466-14529.jpg?w=1060');
+      /*   background: url('https://image.freepik.com/free-photo/3d-illustration-smartphone-with-products-coming-out-screen-online-shopping-e-commerce-concept_58466-14529.jpg?w=1060');
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover; */
+        background-color: rgb(41,41,41,255);
         }
     </style>
     <title>
@@ -30,11 +31,13 @@ backdrop-filter: blur(5px);
     <body>
         <form class="formdes">
             
-     <h1 style="font-family: sans-serif;"> <center><%=data.name%></center></h1>
+     <h1 style="font-family: sans-serif;color: white;"> <center><%=data.name%></center></h1>
      
-     <h2 style="font-family: sans-serif;"><center><%=data.description%></center></h2>
+     <h2 style="font-family: sans-serif;color: white;font-weight: lighter;"><center><%=data.description%></center></h2>
      
-     <center><img src=<%= imageurl %> style="width:450px;height:350px;border: radius 2px;" />  </center>
+     <center><img src=<%= imageurl %> style="width:550px;height:450px;border: radius 2px;" />  </center>
+     <br>
+     <h2 style="font-family: sans-serif;color: white;font-weight: lighter;"><center><%=data.price%>₹</center></h2>
     
     </form>
     </body>

@@ -3,15 +3,16 @@
     <head>
         <style>
             .mainhead{
-                background: url(https://cdn.pixabay.com/photo/2018/05/28/12/10/headphones-3435888_1280.jpg);
+               /*  background: url(https://cdn.pixabay.com/photo/2018/05/28/12/10/headphones-3435888_1280.jpg); */
                 padding: 30px;
-                background-repeat: no-repeat;
+              /*   background-repeat: no-repeat;
 background-size: cover;
 box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     
     background-color: rgba(255, 255, 255, .15);
     
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px); */
+    background-color: rgb(41,41,41,255);
             }
         </style>
 
@@ -26,16 +27,16 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
     <body class="mainhead">
         <nav class="navbar" style="padding: 1%;box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     
-        background-color: rgba(255, 255, 255, .15);
+        background-color: rgba(0, 0, 0, 255);
         
         backdrop-filter: blur(5px);border-radius: 10px; ">
-            <h1 style="color: rgb(255, 255, 255);">Welcome to fastr.</h1>
+            <h1 style="color: rgb(255, 255, 255);"> <img style="width:55px;height:55px;border-radius:50%" src="https://www.wiltongroup.com/wp-content/uploads/2019/03/fastr_1920x1280.jpg" alt="">    Welcome to fastr.</h1>
           
            
             <button class="btn btn-danger btnAction" onclick="window.location.href = 'logout';" style="margin-left: 20%;">Back</button>
           </nav>
         <br>
-        <h2> <%=mdata.name%>'s Adds</h2>
+        <h2 style="color: white;"> <%=mdata.name%>'s Adds</h2>
         <table class="table" style="text-align: center;margin-top:2%;box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     
         background-color: rgba(255, 255, 255, .15);
@@ -49,8 +50,8 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                 <th>Description</th>
                 <th>Time Created</th>
                 <th>Price</th>
-                <th>ViewImage</th>
                 <th>Image</th>
+                <th>View add</th>
                 <th>Request Info</th>
                 
             </tr>
@@ -62,17 +63,18 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                     
                     %>
 
-                    <tr style="color: black;">
+                    <tr style="color: rgb(255, 255, 255);">
                         <% var imageurl = "/media/"+data._id+"."+data.image %>
                         <td><%=data.name%></td>
                         <td><%=data.description%></td>
                         <td><% var dObj = new Date(data.timestamp)
                             var date = dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() %>
                             <%=date%></td>
-                        <td><%=data.price%></td>
+                        <td><%=data.price%>₹</td>
+                        <td><img src=<%= imageurl %>  style="width:150px;height:150px;" /></td>
                         
                         <td><a class="" href="/admin/view/<%=data._id%>"> view </a></td>
-                        <td><img src=<%= imageurl %>  style="width:150px;height:150px;border-radius:50%" /></td>
+                        
                         <td><a class="" href="/admin/request/<%=data._id%>"> request </a></td>
                        
                            
