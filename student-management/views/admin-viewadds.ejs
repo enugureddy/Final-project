@@ -36,7 +36,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
             <button class="btn btn-danger btnAction" onclick="window.location.href = 'logout';" style="margin-left: 20%;">Back</button>
           </nav>
         <br>
-        <h2 style="color: white;"> <%=mdata.name%>'s Adds</h2>
+        <h2 style="color: white;"><% var imageurll = "/profile/"+mdata._id+"."+mdata.image %><img src=<%= imageurll %>  style="width:150px;height:150px;border-radius:50%" /> <%=mdata.name%>'s Adds</h2>
         <table class="table" style="text-align: center;margin-top:2%;box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     
         background-color: rgba(255, 255, 255, .15);
