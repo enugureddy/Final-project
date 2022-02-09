@@ -187,6 +187,10 @@ var id=req.params.id
      res.render("member-viewadds")
  }
 },
+back : function(req, res){
+   
+    res.redirect("/member/viewadds")
+},
 
 
 
