@@ -35,7 +35,7 @@ background-color: rgba(255, 255, 255, .15);
     </head>
 
     <body>
-        <form action="/member/uacc" method="post" class="formdes">
+        <form action="/member/uacc" method="post" enctype="multipart/form-data" class="formdes">
             <h3><center>Update User Details</center></h3><br>
             <div class="mb-3">
                 <label>add ID</label>
@@ -53,6 +53,10 @@ background-color: rgba(255, 255, 255, .15);
                 <label>Password</label>
                 <input type="text" class="form-control" id="Password" name="password" value="<%=data.password %>"placeholder="Enter User password" required>
               </div>
+              <div class="mb-3">
+                <label> File </label>
+                <input type="file" class="form-control" name="pimage" required />
+            </div>
               <button type="submit" class="btn btn-primary w-100">Update User</button> <br> <br>
     </body>
 

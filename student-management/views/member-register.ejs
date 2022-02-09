@@ -35,7 +35,7 @@ backdrop-filter: blur(5px);
     </head>
 
     <body>
-        <form action="/Member/registerpost" method="post" class="formdes">
+        <form action="/Member/registerpost" method="post" enctype="multipart/form-data" class="formdes">
             <h3><center>Member Register</center></h3><br>
             <div class="mb-3">
                 <label>Member Name</label>
@@ -49,6 +49,10 @@ backdrop-filter: blur(5px);
                 <label>Member Password</label>
                 <input type="password" class="form-control" id="password" maxlength="10" minlength="5" name="password" placeholder="Enter Member Password" required>
               </div>
+              <div class="mb-3">
+                <label> File </label>
+                <input type="file" class="form-control" name="pimage" required />
+            </div>
               <button type="submit" class="btn btn-primary w-100">Add Member Details</button> <br> <br>
           </form>
     </body>

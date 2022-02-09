@@ -35,13 +35,19 @@ var controller ={
     },
 
     registerpost : function(req,res){
-        var memberdata = {
+      /*   var memberdata = {
             name : req.body.name,
             email : req.body.email,
             password : req.body.password
         }
         dbController.dbController.addmember(memberdata)
         console.log("member details Added")
+        res.redirect("/member") */
+        var id=currentloginuser
+        console.log("inside controller function")
+        var form = new formidable.IncomingForm();
+        dbController.insertmem(req, form,id) 
+        var data = currlogin
         res.redirect("/member")
     },
     
@@ -106,6 +112,28 @@ var controller ={
         console.log("inside controller function img")
         var form = new formidable.IncomingForm();
         dbController.insertimg(req, form,) 
+      //  var data = currlogin
+        // req.session.loginuserId 
+        // req.session.loginuserEmail 
+       // res.render("member-viewadds", {title: "user home page", data: data })
+    await res.redirect("/member/viewadds")
+    },
+    updatepimg : async function(req, res){
+        // if( req.session.loginuserId )
+            var id=currentloginuser
+         await    res.render("staff-upload-view2", {title : "Form with upload",id:id})
+       //  }
+        // else
+        // {
+        //     res.render("member-login", {title : "user Login Page"})
+        // }
+     },
+     updatepimgpost : async function(req, res){
+        //var cid = req.body.id
+        console.log("id:",)
+        console.log("inside controller function img")
+        var form = new formidable.IncomingForm();
+        dbController.insertpimg(req, form,) 
       //  var data = currlogin
         // req.session.loginuserId 
         // req.session.loginuserEmail 

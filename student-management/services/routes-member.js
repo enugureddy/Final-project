@@ -25,6 +25,9 @@ module.exports=function(member){
    member.route("/updateimgpost").post(controller.updateimgpost)
 
    member.route("/updatedetpost").post(controller.updatedetpost)
+   member.route("/updatepimage").get(controller.updatepimg)
+
+   member.route("/updatepimgpost").post(controller.updatepimgpost)
    
    member.route("/dadd").get(controller.dadd)
    member.route("/dacc").get(controller.dacc)

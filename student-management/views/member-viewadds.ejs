@@ -30,12 +30,14 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
         background-color: rgba(13,13,13,255);border-radius: 10px;
         
         ">
-            <h1 style="color: rgb(255, 255, 255);"> <img style="width:60px;height:60px;border-radius:50%" src="https://www.wiltongroup.com/wp-content/uploads/2019/03/fastr_1920x1280.jpg" alt=""><h1 style="color: whitesmoke;">   Welcome </h1><h1 style="font-size: 25px;color: white;font-style: italic;"><%=mdata.name%> </h1></h1>
+            <h1 style="color: rgb(255, 255, 255);"> <img style="width:60px;height:60px;border-radius:50%" src="https://www.wiltongroup.com/wp-content/uploads/2019/03/fastr_1920x1280.jpg" alt=""><h1 style="color: whitesmoke;">   Welcome </h1><h1 style="font-size: 25px;color: white;font-style: italic;"><%=mdata.name%> </h1>  <% var imageUrl = "/profile/"+mdata._id+"."+mdata.image%>
+             <img src=<%= imageUrl %>  style="width:60px;height:60px;border-radius:50%"/></h1>
           
             <button class="btn btn-success btnAction" onclick="window.location.href = 'uploadview';">Create Add</button>
             <button class="btn btn-warning btnAction" onclick="window.location.href = 'dadd';">Destroy adds</button>
             <button class="btn btn-info btnAction" onclick="window.location.href = 'dacc';">Destroy account</button>
             <button style="background-color: rgb(187,134,252,255);" class="btn btn-info btnAction" onclick="window.location.href = 'uacc';">Update account</button>
+            <button style="background-color: rgb(187,134,252,255);" class="btn btn-info btnAction" onclick="window.location.href = 'updatepimage';">Update profile pic</button>
             <button class="btn btn-danger btnAction" onclick="window.location.href = 'logout';" style="margin-left: 20%;">Logout</button>
           </nav>
         <br>
