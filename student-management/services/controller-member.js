@@ -191,6 +191,10 @@ back : function(req, res){
    
     res.redirect("/member/viewadds")
 },
+bacck : function(req, res){
+   
+    res.redirect("/member")
+},
 
 
 

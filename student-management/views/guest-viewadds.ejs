@@ -38,9 +38,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
         <br>
         <table class="table" style="text-align: center;margin-top:2%;box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
     
-        background-color: rgba(255, 255, 255, .15);
-        
-        backdrop-filter: blur(5px);">
+        background-color: white;">
         
             <span style="font-size: 25px;color:rgb(255, 255, 255);font-family:sans-serif;"> your feed <b></b> </span>
             
@@ -63,7 +61,7 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
                     
                     %>
 
-                    <tr style="color: white;">
+                    <tr style="color: rgb(0, 0, 0);">
                         <% var imageurl = "/media/"+data._id+"."+data.image %>
                         <td><%=data.name%></td>
                         <td><%=data.description%></td>
@@ -87,6 +85,11 @@ box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
         </table>
     </body>
 </html>
+<style>
+td{
+    border: none;
+}
+    </style>
 <script lang="javascript">
     
 var oRows = document.getElementById('table').getElementsByTagName('tr');
