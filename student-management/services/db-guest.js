@@ -27,7 +27,7 @@ var dbController = {
             console.log("DB Connected for guest")
         })
     },
-    viewmemberadds : function(name,res){
+    viewmemberadds : function(aname,res){
         var collection = db.collection("add")
        // var vid = mongodb.ObjectId(id)
       
@@ -36,7 +36,7 @@ var dbController = {
                 console.log("Err in view")
                 return
             }
-            res.render("guest-viewadds", {title: "view tasks", addData : result,mname:name})
+            res.render("guest-viewadds", {title: "view tasks", addData : result,mname:aname})
         })
     },
    /*  contact : function(id,res){

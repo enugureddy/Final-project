@@ -12,6 +12,7 @@ module.exports=function(admin){
   admin.route("/request/:id").get(controller.request)
   admin.route("/requestpost").post(controller.requestpost)
   admin.route('/back').get(controller.back)
+ // admin.route('/bacck').get(controller.bacck)
     admin.route('/logout').get(controller.logout)
    // admin.route("/admin-register").get(controller.register)
 }

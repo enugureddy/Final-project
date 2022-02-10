@@ -63,6 +63,7 @@ var controller ={
    
             res.redirect("/admin/viewmembers")
         },
+        
     
 
     logout : function(req, res){

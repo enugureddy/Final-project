@@ -2,19 +2,25 @@ const dbController = require("./db-guest")
 const emailController = require("./mail-service")
 
 dbController.dbController.connection()
-
+var name
 var controller ={
 
-    enter : function(req,res){
+    login : function(req,res){
         // var id = req.params.id
         // dbController.dbController.viewmemberadds(res)
         res.render("guest-login")
      },
-  
-    login : function(req,res){
-         var name = req.body.name
-         dbController.dbController.viewmemberadds(name,res)
+     verify : function(req,res){
+          name = req.body.name
+        // dbController.dbController.viewmemberadds(res)
+        res.redirect("/guest/enter")
      },
+  
+    enter : function(req,res){
+       var   aname = name
+        dbController.dbController.viewmemberadds(aname,res)
+     },
+
      view:async function(req,res){
         var id=req.params.id
          var ad= await dbController.getbyid(id)
@@ -39,6 +45,11 @@ var controller ={
             res.redirect("/guest")
 
         },
+        back : function(req, res){
+   
+            res.redirect("/guest/enter")
+        },
+        
         logout : function(req, res){
             req.session.destroy( function(err){
                 console.log("session destroyed")
