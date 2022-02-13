@@ -1,7 +1,7 @@
 const express=require('express')
 const session=require('express-session')
 var app=express()
-var port=4920
+var port=process.env.PORT||4920
 const formidable = require('formidable')
 const fs = require('fs')
 var dateTime = require('node-datetime');
