@@ -39,6 +39,21 @@ var dbController = {
             res.render("guest-viewadds", {title: "view tasks", addData : result,mname:aname})
         })
     },
+    smemberadds : function(aname,zname,res){
+        var collection = db.collection("add")
+       // var vid = mongodb.ObjectId(id)
+       filter5={
+           "name":zname
+       }
+      
+        collection.find(filter5).toArray(function(err,result){
+            if(err){
+                console.log("Err in view")
+                return
+            }
+            res.render("guest-viewadds", {title: "view tasks", addData : result,mname:aname})
+        })
+    },
    /*  contact : function(id,res){
         var collection = db.collection("member")
         var filter={

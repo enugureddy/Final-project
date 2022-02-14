@@ -8,5 +8,6 @@ module.exports=function(guest){
     guest.route("/contact/:id").get(controller.contact)
     guest.route("/contactpost").post(controller.contactpost)
     guest.route('/back').get(controller.back)
+    guest.route('/search').get(controller.search)
     guest.route('/logout').get(controller.logout)
 }

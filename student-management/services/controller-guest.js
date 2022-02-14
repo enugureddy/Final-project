@@ -49,6 +49,11 @@ var controller ={
    
             res.redirect("/guest/enter")
         },
+        search : function(req,res){
+            var   aname = name
+          var zname=req.query.name
+             dbController.dbController.smemberadds(aname,zname,res)
+          },
         
         logout : function(req, res){
             req.session.destroy( function(err){
