@@ -42,8 +42,12 @@ var dbController = {
     smemberadds : function(aname,zname,res){
         var collection = db.collection("add")
        // var vid = mongodb.ObjectId(id)
+      var g= zname.toLocaleLowerCase()
+
+console.log("g",g)
        filter5={
-           "name":zname
+          "name":g
+        //  "name":{ $regex:"\("+g+")\i" }
        }
       
         collection.find(filter5).toArray(function(err,result){
@@ -52,6 +56,7 @@ var dbController = {
                 return
             }
             res.render("guest-viewadds", {title: "view tasks", addData : result,mname:aname})
+            console.log(result)
         })
     },
    /*  contact : function(id,res){

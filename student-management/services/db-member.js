@@ -102,8 +102,10 @@ function insertAd(req, form,id)
         var name = fields.name
         var description = fields.description
         var price=fields.price
+
+        var sname=name.toLowerCase()
  
-        console.log("name : ", name)
+        console.log("name : ", sname)
         console.log("description : ", description)
         console.log("price :",price)
 
@@ -114,7 +116,7 @@ function insertAd(req, form,id)
         //insert to db
         var adData = {
             'id' : id,
-            'name' : name,
+            'name' : sname,
             'description' : description,
             'price': price,
             'image' : extension,
@@ -448,11 +450,11 @@ var dbController = {
         var name = req.body.name
         var description = req.body.description
         var price = req.body.price
-
+         var pname=name.toLowerCase()
         var frtdata = {
             $set :  {
               //  "_id":id,
-                "name" : name,
+                "name" : pname,
                 "description" : description,
                 "price" : price,
             }
