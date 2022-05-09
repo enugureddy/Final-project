@@ -36,6 +36,7 @@ module.exports=function(member){
    member.route("/view/:id").get(controller.view)
    member.route('/back').get(controller.back)
    member.route('/bacck').get(controller.bacck)
+   member.route('/search').get(controller.search)
   
     member.route('/logout').get(controller.logout)
 

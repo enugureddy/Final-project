@@ -195,6 +195,11 @@ bacck : function(req, res){
    
     res.redirect("/member")
 },
+search : function(req,res){
+    //var   aname = name
+  var zname=req.query.name
+     dbController.dbController.smemberadds(zname,res)
+  },
 
 
 

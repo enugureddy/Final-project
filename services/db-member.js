@@ -90,7 +90,7 @@ function insertAd(req, form,id)
 {
     console.log("inside controller")
     //getting collection
-    var collection = db.collection("add")
+    var collection = db.collection("VEHICLEINFO")
 
     form.parse(req, function(err, fields, files){
         console.log("inside formidable function")
@@ -115,13 +115,13 @@ function insertAd(req, form,id)
 
         //insert to db
         var adData = {
-            'id' : id,
-            'name' : sname,
+           'id' : id,
+            'Rt_no' : sname,
             'description' : description,
-            'price': price,
+           // 'price': price,
             'image' : extension,
             'timestamp' : timestamp,
-            'adDateTime' : currentDateTime
+            'In_time' : currentDateTime
         }
         collection.insertOne(adData)
         var adId = adData._id //new id generated //_id.exten ::: for eg: 123123123123.png
@@ -159,6 +159,8 @@ function insertAd(req, form,id)
     })
 
 }
+
+
 function insertimg(req, form,cid)
 {
     console.log("inside controller img")
@@ -166,8 +168,8 @@ function insertimg(req, form,cid)
    
 
     form.parse(req, function(err, fields, files){
-       // var collection = db.collection("add")
-        var collection = db.collection("add")
+       // var collection = db.collection("VEHICLEINFO")
+        var collection = db.collection("VEHICLEINFO")
         var selectedId = fields.id
         var filter = {
             "_id": mongodb.ObjectId(selectedId)
@@ -234,7 +236,7 @@ function insertpimg(req, form,cid)
    
 
     form.parse(req, function(err, fields, files){
-       // var collection = db.collection("add")
+       // var collection = db.collection("VEHICLEINFO")
         var collection = db.collection("member")
         var selectedId = fields.id
         var filter = {
@@ -297,7 +299,7 @@ function insertpimg(req, form,cid)
 }
  function getbyid(id)
  {
-     var collection=db.collection("add")
+     var collection=db.collection("VEHICLEINFO")
      var filter={
          '_id':mongodb.ObjectId(id)
      }
@@ -314,7 +316,7 @@ var dbController = {
                 console.log("Err in database server connection")
                 return
             }
-            db = database.db("faster")
+            db = database.db("D1553")
             console.log("DB Connected for member")
         })
     },
@@ -329,7 +331,7 @@ var dbController = {
         })
     },
     viewAdds : function(id,res){
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
         var memcollection=db.collection("member")
         var filter1={
             "id":id
@@ -353,7 +355,7 @@ var dbController = {
     })
     },
     deleteadd : function(id,res){
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
         var filter = {
             "_id" : mongodb.ObjectId(id)
         }
@@ -366,7 +368,7 @@ var dbController = {
        // res.render("staff-viewusers", {title: "view page"})
     },
     dadd : function(id,res){
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
         var filter = {
             "id" : id
         }
@@ -403,7 +405,7 @@ var dbController = {
         return userData
     },
     updatedet: function(id,res){
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
          
         var newId = mongodb.ObjectId(id)
         var filter = {
@@ -425,7 +427,7 @@ var dbController = {
 
    
     uadd: function(id,res){
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
          
         var newId = mongodb.ObjectId(id)
         var filter = {
@@ -463,7 +465,7 @@ var dbController = {
         var whereclause = {
             "_id" : mongodb.ObjectId(id)
         }
-        var collection = db.collection("add")
+        var collection = db.collection("VEHICLEINFO")
     
         collection.updateMany(whereclause, frtdata, function(err, data){
             if(err)
@@ -493,6 +495,26 @@ var dbController = {
                 stdata = element
             })
            res.render("member-updateacc" , {data:stdata})
+        })
+    },
+    smemberadds : function(zname,res){
+        var collection = db.collection("VEHICLEINFO")
+       // var vid = mongodb.ObjectId(id)
+      var g= zname.toLocaleLowerCase()
+
+console.log("g",g)
+       filter5={
+          "Rt_no":g
+        //  "name":{ $regex:"\("+g+")\i" }
+       }
+      
+        collection.find(filter5).toArray(function(err,result){
+            if(err){
+                console.log("Err in view")
+                return
+            }
+            res.render("member-viewadds", {title: "view tasks", data : result})
+            console.log(result)
         })
     },
 
