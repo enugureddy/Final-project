@@ -111,7 +111,9 @@ function insertAd(req, form,id)
 
         //preparing time informartion
         var timestamp = Date.now();
-        var currentDateTime = new Date();  
+        
+        var dObj = new Date(timestamp)
+        var currentDateTime   = dObj.getDate()+"/"+(dObj.getMonth()+1)+"/"+dObj.getFullYear()+" "+ dObj.getHours()+":"+dObj.getMinutes()+":"+dObj.getSeconds() 
 
         //insert to db
         var adData = {
@@ -501,10 +503,11 @@ var dbController = {
         var collection = db.collection("VEHICLEINFO")
        // var vid = mongodb.ObjectId(id)
       var g= zname.toLocaleLowerCase()
+      
 
 console.log("g",g)
        filter5={
-          "Rt_no":g
+         $or:[ {"In_time":g},{"Rt_no":g}]
         //  "name":{ $regex:"\("+g+")\i" }
        }
       
